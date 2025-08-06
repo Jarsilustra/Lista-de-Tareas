@@ -1,0 +1,302 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #023047;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: #ffb703;
+  padding: 20px;
+  border-radius: 8px;
+  width: 700px; /* Más ancho para dos columnas */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: 'Courier New', Courier, monospace;
+  color: #023047;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Contenedor de dos columnas */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+/* Panel izquierdo (controles) */
+.controls {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Panel derecho (lista de tareas) */
+.tasks-panel {
+  width: 55%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Estilo de input y botones */
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background: #023047;
+  color: #fff;
+}
+
+button:hover {
+  background: #035c82;
+}
+
+/* Dropdown personalizado */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 8px;
+  background: #023047;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+  padding: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.dropdown-content label {
+  display: block;
+  padding: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-content label:hover {
+  background: #979797;
+}
+
+#addSelectedTasksBtn {
+  width: 100%;
+  background: #8ecae6;
+  color: #000;
+}
+
+#addSelectedTasksBtn:hover {
+  background: #b00000;
+  color: #fff;
+}
+
+/* Filtros y acciones */
+.filters,
+.bulk-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filters button {
+  background: #023047;
+  color: #fff;
+}
+
+.filters button:hover {
+  background: #035c82;
+}
+
+.bulk-actions button {
+  background: #8ecae6;
+  color: #000;
+}
+
+.bulk-actions button:hover {
+  background: #b00000;
+  color: #fff;
+}
+
+/* Lista de tareas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #023047;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #e36414;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b00000;
+}
+
+/* ====== Base flexible ====== */
+.container {
+  max-width: 95%;
+  width: 700px;
+}
+
+/* ====== Pantallas muy grandes (≥1440px) ====== */
+@media (min-width: 1440px) {
+  .container {
+    width: 900px;
+  }
+
+  .content-wrapper {
+    gap: 40px;
+  }
+
+  .controls, .tasks-panel {
+    padding: 10px;
+  }
+}
+
+/* ====== Pantallas medianas (768px – 1023px) ====== */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .content-wrapper {
+    gap: 20px;
+  }
+
+  .controls {
+    width: 50%;
+  }
+
+  .tasks-panel {
+    width: 50%;
+  }
+}
+
+/* ====== Pantallas pequeñas (≤767px) ====== */
+@media (max-width: 767px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .content-wrapper {
+    flex-direction: column; /* Cambia a una sola columna */
+    gap: 15px;
+  }
+
+  .controls,
+  .tasks-panel {
+    width: 100%;
+  }
+
+  .tasks-panel {
+    max-height: 300px; /* Ajusta altura en móviles */
+  }
+
+  button,
+  input,
+  .dropdown-btn,
+  #addSelectedTasksBtn {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+/* ====== Pantallas ultra pequeñas (≤350px) ====== */
+@media (max-width: 350px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  button,
+  input,
+  .dropdown-btn,
+  #addSelectedTasksBtn {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Tareas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Tareas</h1>
+
+    <div class="content-wrapper">
+      <!-- Panel Izquierdo -->
+      <div class="controls">
+        <!-- Input para tarea personalizada -->
+        <div class="input-group">
+          <input type="text" id="taskInput" placeholder="Escribe una tarea..." />
+          <button id="addTaskBtn">Agregar</button>
+        </div>
+
+        <!-- Dropdown moderno con checkboxes -->
+        <div class="custom-dropdown">
+          <button type="button" class="dropdown-btn" id="dropdownToggle">
+            Seleccionar tareas predefinidas
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content" id="dropdownContent">
+            <!-- Aquí van las tareas (se insertan desde JS) -->
+          </div>
+        </div>
+
+        <button id="addSelectedTasksBtn">Agregar tareas seleccionadas</button>
+
+        <!-- Filtros -->
+        <div class="filters">
+          <h3>- Filtros -</h3>
+          <button id="showAll">Todas</button>
+          <button id="showCompleted">Completadas</button>
+          <button id="showPending">Pendientes</button>
+        </div>
+
+        <!-- Acciones en lote -->
+        <div class="bulk-actions">
+          <h3>- Gestionar Lista -</h3>
+          <button id="markAll">Marcar todas</button>
+          <button id="unmarkAll">Desmarcar todas</button>
+          <button id="deleteCompleted">Eliminar completadas</button>
+        </div>
+      </div>
+
+      <!-- Panel Derecho -->
+      <div class="tasks-panel">
+        <ul id="taskList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
